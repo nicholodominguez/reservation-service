@@ -1,3 +1,7 @@
 class Guest < ApplicationRecord
-  validate :email, presence: true, unique: true
+  validates :email, presence: true, uniqueness: true
+
+  has_many :reservations
+
+  accepts_nested_attributes_for :reservations
 end
